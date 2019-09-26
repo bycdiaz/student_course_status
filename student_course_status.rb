@@ -23,4 +23,15 @@ end
 
 no_bmes201_bmes202 = current_bmes_id - taken_bmes201_bmes202_ids
 
-p no_bmes201_bmes202
+# p no_bmes201_bmes202
+
+result = []
+
+CSV.foreach('data/STU-Eligible_To_Register-Fall-09_26_2019.csv', headers: true) do |header|
+  if no_bmes201_bmes202.include?(header["Univ Id"])
+    result << header["Univ Id"]
+    result << header["Student"]
+  end
+end
+
+p final_result_list = Hash[*result]
