@@ -15,7 +15,7 @@ taken_bmes201_bmes202_ids = []
 
 CSV.foreach('data/STU-Student Transcript_biomed_09_26_2019.csv', headers: true) do |header|
   if current_bmes_id.include?(header["Univ Id"])
-    if header["Course"].start_with?("BMES 201", "BMES 202")
+    if header["Course"].start_with?("BMES 201", "BMES 202") && (header["Grade"] != "W" || header["Grade"] != "F")
       taken_bmes201_bmes202_ids << header["Univ Id"]
     end
   end
